@@ -1,5 +1,5 @@
 {
-    "name": "harikt/web.expressive.migrations",
+    "name": "harikt/cli.expressive",
     "description": "DMS migration via Eloquent",
     "homepage": "https://github.com/harikt/cli.expressive",
     "type": "library",
