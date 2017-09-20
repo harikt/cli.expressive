@@ -5,10 +5,10 @@ namespace Dms\Cli\Expressive\Scaffold\CodeGeneration;
 use Dms\Core\Model\Object\Enum;
 use Dms\Core\Model\Object\FinalizedPropertyDefinition;
 use Dms\Core\Model\Type\ObjectType;
-use Dms\Web\Expressive\Scaffold\Domain\DomainObjectStructure;
-use Dms\Web\Expressive\Scaffold\Domain\DomainStructure;
-use Dms\Web\Expressive\Scaffold\ScaffoldCmsContext;
-use Dms\Web\Expressive\Scaffold\ScaffoldPersistenceContext;
+use Dms\Cli\Expressive\Scaffold\Domain\DomainObjectStructure;
+use Dms\Cli\Expressive\Scaffold\Domain\DomainStructure;
+use Dms\Cli\Expressive\Scaffold\ScaffoldCmsContext;
+use Dms\Cli\Expressive\Scaffold\ScaffoldPersistenceContext;
 
 /**
  * @author Elliot Levin <elliotlevin@hotmail.com>

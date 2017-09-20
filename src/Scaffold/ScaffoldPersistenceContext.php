@@ -2,7 +2,7 @@
 
 namespace Dms\Cli\Expressive\Scaffold;
 
-use Dms\Web\Expressive\Scaffold\Domain\DomainStructure;
+use Dms\Cli\Expressive\Scaffold\Domain\DomainStructure;
 
 /**
  * @author Elliot Levin <elliotlevin@hotmail.com>

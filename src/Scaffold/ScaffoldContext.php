@@ -3,8 +3,8 @@
 namespace Dms\Cli\Expressive\Scaffold;
 
 use Dms\Core\Exception\InvalidArgumentException;
-use Dms\Web\Expressive\Scaffold\Domain\DomainObjectStructure;
-use Dms\Web\Expressive\Scaffold\Domain\DomainStructure;
+use Dms\Cli\Expressive\Scaffold\Domain\DomainObjectStructure;
+use Dms\Cli\Expressive\Scaffold\Domain\DomainStructure;
 
 /**
  * @author Elliot Levin <elliotlevin@hotmail.com>

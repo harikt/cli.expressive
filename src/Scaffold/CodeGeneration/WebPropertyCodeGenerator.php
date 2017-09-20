@@ -11,9 +11,9 @@ use Dms\Common\Structure\Web\Persistence\IpAddressMapper;
 use Dms\Common\Structure\Web\Persistence\UrlMapper;
 use Dms\Common\Structure\Web\Url;
 use Dms\Core\Model\Object\FinalizedPropertyDefinition;
-use Dms\Web\Expressive\Scaffold\Domain\DomainObjectStructure;
-use Dms\Web\Expressive\Scaffold\ScaffoldCmsContext;
-use Dms\Web\Expressive\Scaffold\ScaffoldPersistenceContext;
+use Dms\Cli\Expressive\Scaffold\Domain\DomainObjectStructure;
+use Dms\Cli\Expressive\Scaffold\ScaffoldCmsContext;
+use Dms\Cli\Expressive\Scaffold\ScaffoldPersistenceContext;
 
 /**
  * @author Elliot Levin <elliotlevin@hotmail.com>

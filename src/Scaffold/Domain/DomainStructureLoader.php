@@ -5,7 +5,7 @@ namespace Dms\Cli\Expressive\Scaffold\Domain;
 use Dms\Core\Model\Object\TypedObject;
 use Dms\Core\Model\Type\CollectionType;
 use Dms\Core\Model\Type\ObjectType;
-use Dms\Web\Expressive\Scaffold\NamespaceDirectoryResolver;
+use Dms\Cli\Expressive\Scaffold\NamespaceDirectoryResolver;
 use Pinq\Traversable;
 use Symfony\Component\Finder\Finder;
 

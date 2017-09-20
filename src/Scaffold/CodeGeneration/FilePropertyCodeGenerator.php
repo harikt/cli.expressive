@@ -7,9 +7,9 @@ use Dms\Common\Structure\FileSystem\Image;
 use Dms\Common\Structure\FileSystem\Persistence\FileMapper;
 use Dms\Common\Structure\FileSystem\Persistence\ImageMapper;
 use Dms\Core\Model\Object\FinalizedPropertyDefinition;
-use Dms\Web\Expressive\Scaffold\Domain\DomainObjectStructure;
-use Dms\Web\Expressive\Scaffold\ScaffoldCmsContext;
-use Dms\Web\Expressive\Scaffold\ScaffoldPersistenceContext;
+use Dms\Cli\Expressive\Scaffold\Domain\DomainObjectStructure;
+use Dms\Cli\Expressive\Scaffold\ScaffoldCmsContext;
+use Dms\Cli\Expressive\Scaffold\ScaffoldPersistenceContext;
 
 /**
  * @author Elliot Levin <elliotlevin@hotmail.com>
