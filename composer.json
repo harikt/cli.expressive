@@ -1,8 +1,12 @@
 {
     "name": "harikt/web.expressive.migrations",
     "description": "DMS migration via Eloquent",
+    "homepage": "https://github.com/harikt/cli.expressive",
     "type": "library",
     "license": "MIT",
+    "config": {
+        "sort-packages": true
+    },
     "authors": [
         {
             "name": "Hari KT",
@@ -14,7 +18,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Dms\\Expressive\\": "src/"
+            "Dms\\Cli\\Expressive\\": "src/"
         }
     }
 }

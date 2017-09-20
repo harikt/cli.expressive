@@ -1,6 +1,6 @@
 <?php
 
-namespace Dms\Web\Expressive\Migrations;
+namespace Dms\Cli\Expressive\Migrations;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\ArrayInput;

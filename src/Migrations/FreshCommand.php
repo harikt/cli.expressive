@@ -1,6 +1,6 @@
 <?php
 
-namespace Dms\Web\Expressive\Migrations;
+namespace Dms\Cli\Expressive\Migrations;
 
 use Illuminate\Database\ConnectionResolverInterface;
 use Symfony\Component\Console\Command\Command;

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Dms\Web\Expressive\Migrations;
+namespace Dms\Cli\Expressive\Migrations;
 
 use Dms\Core\Persistence\Db\Connection\IConnection;
 use Illuminate\Database\Migrations\Migrator;

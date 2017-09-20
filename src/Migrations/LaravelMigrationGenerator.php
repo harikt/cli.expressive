@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Dms\Web\Expressive\Migrations;
+namespace Dms\Cli\Expressive\Migrations;
 
 use Dms\Core\Exception\InvalidArgumentException;
 use Dms\Core\Persistence\Db\Doctrine\Migration\MigrationGenerator;

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Dms\Web\Expressive\Migrations;
+namespace Dms\Cli\Expressive\Migrations;
 
 use Illuminate\Database\Migrations\MigrationRepositoryInterface;
 use Symfony\Component\Console\Command\Command;

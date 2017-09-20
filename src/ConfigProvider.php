@@ -1,6 +1,6 @@
 <?php
 
-namespace Dms\Web\Expressive;
+namespace Dms\Cli\Expressive;
 
 /**
  * The configuration provider for the App module
@@ -33,6 +33,8 @@ class ConfigProvider
                     Migrations\ResetCommand::class,
                     Migrations\RollbackCommand::class,
                     Migrations\StatusCommand::class,
+                    Scaffold\ScaffoldCmsCommand::class,
+                    Scaffold\ScaffoldPersistenceCommand::class,
                 ],
             ],
         ];

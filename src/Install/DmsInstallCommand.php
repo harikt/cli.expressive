@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Dms\Web\Expressive\Install;
+namespace Dms\Cli\Expressive\Install;
 
 use Dms\Core\Exception\InvalidOperationException;
 use Dms\Core\ICms;
