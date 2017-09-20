@@ -1,0 +1,20 @@
+{
+    "name": "harikt/web.expressive.migrations",
+    "description": "DMS migration via Eloquent",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hari KT",
+            "email": "kthari85@gmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/database":"^5.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dms\\Expressive\\": "src/"
+        }
+    }
+}
