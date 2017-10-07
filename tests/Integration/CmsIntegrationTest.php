@@ -55,33 +55,6 @@ abstract class CmsIntegrationTest extends TestCase
     }
 
     /**
-     * @return \Illuminate\Foundation\Application
-     */
-    public function createApplication()
-    {
-        $app = parent::createApplication();
-
-        $routes = $app->make('router')->getRoutes();
-        if ($routes instanceof RouteCollection) {
-            $routes->refreshNameLookups();
-        }
-
-        return $app;
-    }
-
-    /**
-     * Get package providers.
-     *
-     * @param  \Illuminate\Foundation\Application $app
-     *
-     * @return array
-     */
-    protected function getPackageProviders($app)
-    {
-        return [DmsServiceProvider::class];
-    }
-
-    /**
      * Define environment setup.
      *
      * @param  \Illuminate\Foundation\Application $app
