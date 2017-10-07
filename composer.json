@@ -14,11 +14,22 @@
         }
     ],
     "require": {
+        "harikt/web.expressive":"dev-master",
         "illuminate/database":"^5.5"
     },
     "autoload": {
         "psr-4": {
             "Dms\\Cli\\Expressive\\": "src/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Dms\\Cli\\Expressive\\Tests\\": "./tests/",
+            "Dms\\Web\\Expressive\\Tests\\": "./vendor/harikt/web.expressive/tests/Tests/",
+            "Dms\\Core\\Tests\\": "./vendor/dms-org/core/tests/Tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.4"
     }
 }

@@ -156,7 +156,7 @@ class DmsInstallCommand extends Command
 
     protected function publishAssets()
     {
-        app('config')->set(['dms' => require __DIR__ . '/../../config/dms.php']);
+        app('laravel.config')->set(['dms' => require __DIR__ . '/../../config/dms.php']);
     }
 
     protected function setUpInitialDatabase($output)
@@ -172,21 +172,21 @@ class DmsInstallCommand extends Command
             new ArrayInput($arguments), $output
         );
 
-        $output->writeln('<info>Executed: php artisan dms:make:migration initial_db</info>');
+        $output->writeln('<info>Executed: php console dms:make:migration initial_db</info>');
 
         $this->getApplication()->find('migrate')->run(
             new ArrayInput([
                 'command' => 'migrate',
             ]), $output
         );
-        $output->writeln('<info>Executed: php artisan migrate</info>');
+        $output->writeln('<info>Executed: php console migrate</info>');
 
         $this->getApplication()->find('db:seed')->run(
             new ArrayInput([
                 'command' => 'db:seed',
             ]), $output
         );
-        $output->writeln('<info>Executed: php artisan db:seed</info>');
+        $output->writeln('<info>Executed: php console db:seed</info>');
     }
 
     protected function addPathsToGitIgnore($output)
@@ -202,10 +202,12 @@ class DmsInstallCommand extends Command
 
     protected function addDmsUpdateCommandToComposerJsonHook($output)
     {
-        $composerJsonData                                 = json_decode(file_get_contents(base_path('composer.json')), true);
-        $composerJsonData['scripts']['post-update-cmd'][] = 'php artisan dms:update';
-        file_put_contents(base_path('composer.json'), json_encode($composerJsonData, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
-        $output->writeln('<info>Added php artisan dms:update to post-update hook in composer.json</info>');
+        // Do nothing now
+        return;
+        // $composerJsonData                                 = json_decode(file_get_contents(base_path('composer.json')), true);
+        // $composerJsonData['scripts']['post-update-cmd'][] = 'php console dms:update';
+        // file_put_contents(base_path('composer.json'), json_encode($composerJsonData, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+        // $output->writeln('<info>Added php console dms:update to post-update hook in composer.json</info>');
     }
 
     protected function createDefaultDirectories()
