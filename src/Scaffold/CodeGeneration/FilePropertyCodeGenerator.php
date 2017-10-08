@@ -2,14 +2,14 @@
 
 namespace Dms\Cli\Expressive\Scaffold\CodeGeneration;
 
+use Dms\Cli\Expressive\Scaffold\Domain\DomainObjectStructure;
+use Dms\Cli\Expressive\Scaffold\ScaffoldCmsContext;
+use Dms\Cli\Expressive\Scaffold\ScaffoldPersistenceContext;
 use Dms\Common\Structure\FileSystem\File;
 use Dms\Common\Structure\FileSystem\Image;
 use Dms\Common\Structure\FileSystem\Persistence\FileMapper;
 use Dms\Common\Structure\FileSystem\Persistence\ImageMapper;
 use Dms\Core\Model\Object\FinalizedPropertyDefinition;
-use Dms\Cli\Expressive\Scaffold\Domain\DomainObjectStructure;
-use Dms\Cli\Expressive\Scaffold\ScaffoldCmsContext;
-use Dms\Cli\Expressive\Scaffold\ScaffoldPersistenceContext;
 
 /**
  * @author Elliot Levin <elliotlevin@hotmail.com>

@@ -2,14 +2,14 @@
 
 namespace Dms\Cli\Expressive\Scaffold\CodeGeneration;
 
-use Dms\Common\Structure\Field;
-use Dms\Core\Exception\InvalidArgumentException;
-use Dms\Core\Model\Object\FinalizedPropertyDefinition;
 use Dms\Cli\Expressive\Scaffold\CodeGeneration\Convention\CodeConvention;
 use Dms\Cli\Expressive\Scaffold\Domain\DomainObjectStructure;
 use Dms\Cli\Expressive\Scaffold\Domain\DomainStructure;
 use Dms\Cli\Expressive\Scaffold\ScaffoldCmsContext;
 use Dms\Cli\Expressive\Scaffold\ScaffoldPersistenceContext;
+use Dms\Common\Structure\Field;
+use Dms\Core\Exception\InvalidArgumentException;
+use Dms\Core\Model\Object\FinalizedPropertyDefinition;
 
 /**
  * The code generator for domain object properties base class

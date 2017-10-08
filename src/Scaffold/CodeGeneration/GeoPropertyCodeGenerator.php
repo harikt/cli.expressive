@@ -2,6 +2,9 @@
 
 namespace Dms\Cli\Expressive\Scaffold\CodeGeneration;
 
+use Dms\Cli\Expressive\Scaffold\Domain\DomainObjectStructure;
+use Dms\Cli\Expressive\Scaffold\ScaffoldCmsContext;
+use Dms\Cli\Expressive\Scaffold\ScaffoldPersistenceContext;
 use Dms\Common\Structure\Geo\LatLng;
 use Dms\Common\Structure\Geo\Persistence\LatLngMapper;
 use Dms\Common\Structure\Geo\Persistence\StreetAddressMapper;
@@ -9,9 +12,6 @@ use Dms\Common\Structure\Geo\Persistence\StreetAddressWithLatLngMapper;
 use Dms\Common\Structure\Geo\StreetAddress;
 use Dms\Common\Structure\Geo\StreetAddressWithLatLng;
 use Dms\Core\Model\Object\FinalizedPropertyDefinition;
-use Dms\Cli\Expressive\Scaffold\Domain\DomainObjectStructure;
-use Dms\Cli\Expressive\Scaffold\ScaffoldCmsContext;
-use Dms\Cli\Expressive\Scaffold\ScaffoldPersistenceContext;
 
 /**
  * @author Elliot Levin <elliotlevin@hotmail.com>
