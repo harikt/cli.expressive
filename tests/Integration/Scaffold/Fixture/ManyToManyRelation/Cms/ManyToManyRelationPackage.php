@@ -2,10 +2,10 @@
 
 namespace Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ManyToManyRelation\Cms;
 
-use Dms\Core\Package\Definition\PackageDefinition;
-use Dms\Core\Package\Package;
 use Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ManyToManyRelation\Cms\Modules\TestEntityModule;
 use Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ManyToManyRelation\Cms\Modules\TestRelatedEntityModule;
+use Dms\Core\Package\Definition\PackageDefinition;
+use Dms\Core\Package\Package;
 
 /**
  * The ManyToManyRelation package.

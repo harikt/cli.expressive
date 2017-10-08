@@ -2,10 +2,10 @@
 
 namespace Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ValueObject\Persistence\Infrastructure;
 
-use Dms\Core\Persistence\Db\Mapping\Definition\MapperDefinition;
-use Dms\Core\Persistence\Db\Mapping\IndependentValueObjectMapper;
 use Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ValueObject\Domain\TestMoneyValueObject;
 use Dms\Common\Structure\Money\Persistence\MoneyMapper;
+use Dms\Core\Persistence\Db\Mapping\Definition\MapperDefinition;
+use Dms\Core\Persistence\Db\Mapping\IndependentValueObjectMapper;
 
 /**
  * The Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ValueObject\Domain\TestMoneyValueObject value object mapper.

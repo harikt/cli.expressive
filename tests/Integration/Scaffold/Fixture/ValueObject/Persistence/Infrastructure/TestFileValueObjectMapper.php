@@ -2,11 +2,11 @@
 
 namespace Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ValueObject\Persistence\Infrastructure;
 
-use Dms\Core\Persistence\Db\Mapping\Definition\MapperDefinition;
-use Dms\Core\Persistence\Db\Mapping\IndependentValueObjectMapper;
 use Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ValueObject\Domain\TestFileValueObject;
 use Dms\Common\Structure\FileSystem\Persistence\FileMapper;
 use Dms\Common\Structure\FileSystem\Persistence\ImageMapper;
+use Dms\Core\Persistence\Db\Mapping\Definition\MapperDefinition;
+use Dms\Core\Persistence\Db\Mapping\IndependentValueObjectMapper;
 
 /**
  * The Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ValueObject\Domain\TestFileValueObject value object mapper.

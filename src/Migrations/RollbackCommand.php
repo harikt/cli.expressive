@@ -51,7 +51,8 @@ class RollbackCommand extends Command
         $this->migrator->setConnection($input->getOption('database'));
 
         $this->migrator->rollback(
-            $this->getMigrationPaths(), [
+            $this->getMigrationPaths(),
+            [
                 'pretend' => $input->getOption('pretend'),
                 'step' => (int) $input->getOption('step'),
             ]

@@ -2,7 +2,6 @@
 
 namespace Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ValueObjectCollection\Domain;
 
-use Dms\Common\Structure\Money\Currency;
 use Dms\Common\Structure\Money\Money;
 use Dms\Core\Model\Object\ClassDefinition;
 use Dms\Core\Model\Object\ValueObject;

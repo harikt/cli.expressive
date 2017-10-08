@@ -2,14 +2,13 @@
 
 namespace Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\Mixed\Cms\Modules;
 
+use Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\Mixed\Domain\TestEntity;
+use Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\Mixed\Persistence\Services\ITestEntityRepository;
 use Dms\Core\Auth\IAuthSystem;
 use Dms\Core\Common\Crud\CrudModule;
 use Dms\Core\Common\Crud\Definition\CrudModuleDefinition;
 use Dms\Core\Common\Crud\Definition\Form\CrudFormDefinition;
 use Dms\Core\Common\Crud\Definition\Table\SummaryTableDefinition;
-use Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\Mixed\Persistence\Services\ITestEntityRepository;
-use Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\Mixed\Domain\TestEntity;
-use Dms\Common\Structure\Field;
 
 /**
  * The test-entity module.

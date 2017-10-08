@@ -2,11 +2,11 @@
 
 namespace Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ValueObjectCollection\Persistence\Infrastructure;
 
-use Dms\Core\Persistence\Db\Mapping\Definition\MapperDefinition;
-use Dms\Core\Persistence\Db\Mapping\IndependentValueObjectMapper;
 use Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ValueObjectCollection\Domain\TestColourValueObject;
 use Dms\Common\Structure\Colour\Mapper\ColourMapper;
 use Dms\Common\Structure\Colour\Mapper\TransparentColourMapper;
+use Dms\Core\Persistence\Db\Mapping\Definition\MapperDefinition;
+use Dms\Core\Persistence\Db\Mapping\IndependentValueObjectMapper;
 
 /**
  * The Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ValueObjectCollection\Domain\TestColourValueObject value object mapper.

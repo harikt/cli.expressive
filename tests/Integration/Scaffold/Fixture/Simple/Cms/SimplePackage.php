@@ -2,9 +2,9 @@
 
 namespace Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\Simple\Cms;
 
+use Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\Simple\Cms\Modules\TestEntityModule;
 use Dms\Core\Package\Definition\PackageDefinition;
 use Dms\Core\Package\Package;
-use Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\Simple\Cms\Modules\TestEntityModule;
 
 /**
  * The Simple package.

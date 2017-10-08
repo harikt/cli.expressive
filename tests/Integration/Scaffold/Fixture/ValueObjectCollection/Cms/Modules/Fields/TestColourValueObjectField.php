@@ -2,10 +2,10 @@
 
 namespace Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ValueObjectCollection\Cms\Modules\Fields;
 
-use Dms\Core\Common\Crud\Definition\Form\ValueObjectFieldDefinition;
-use Dms\Core\Common\Crud\Form\ValueObjectField;
 use Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ValueObjectCollection\Domain\TestColourValueObject;
 use Dms\Common\Structure\Field;
+use Dms\Core\Common\Crud\Definition\Form\ValueObjectFieldDefinition;
+use Dms\Core\Common\Crud\Form\ValueObjectField;
 
 /**
  * The Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ValueObjectCollection\Domain\TestColourValueObject value object field.

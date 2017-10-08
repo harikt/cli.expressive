@@ -99,5 +99,4 @@ class StatusCommand extends Command
 
         return [$path];
     }
-
 }

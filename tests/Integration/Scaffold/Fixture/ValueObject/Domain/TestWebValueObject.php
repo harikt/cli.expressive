@@ -2,8 +2,6 @@
 
 namespace Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ValueObject\Domain;
 
-use Dms\Common\Structure\Money\Currency;
-use Dms\Common\Structure\Money\Money;
 use Dms\Common\Structure\Web\EmailAddress;
 use Dms\Common\Structure\Web\Html;
 use Dms\Common\Structure\Web\IpAddress;

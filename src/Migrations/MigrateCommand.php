@@ -80,7 +80,8 @@ class MigrateCommand extends Command
             ];
 
             return $this->getApplication()->find($command)->run(
-                new ArrayInput($arguments), $output
+                new ArrayInput($arguments),
+                $output
             );
         }
     }
@@ -103,7 +104,8 @@ class MigrateCommand extends Command
             ];
 
             return $this->getApplication()->find($command)->run(
-                new ArrayInput($arguments), $output
+                new ArrayInput($arguments),
+                $output
             );
         }
     }

@@ -2,11 +2,11 @@
 
 namespace Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\Simple\Persistence\Infrastructure;
 
+use Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\Simple\Domain\TestEntity;
+use Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\Simple\Persistence\Services\ITestEntityRepository;
 use Dms\Core\Persistence\Db\Connection\IConnection;
 use Dms\Core\Persistence\Db\Mapping\IOrm;
 use Dms\Core\Persistence\DbRepository;
-use Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\Simple\Persistence\Services\ITestEntityRepository;
-use Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\Simple\Domain\TestEntity;
 
 /**
  * The database repository implementation for the Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\Simple\Domain\TestEntity entity.

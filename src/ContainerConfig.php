@@ -20,8 +20,7 @@ class ContainerConfig
         });
 
         $container->bindCallback(IIocContainer::SCOPE_SINGLETON, ConnectionResolverInterface::class, function () use ($container) {
-
-            $settings = array(
+            $settings = [
                 'driver' => getenv('driver'),
                 'host' => getenv('host'),
                 'database' => getenv('database'),
@@ -29,7 +28,7 @@ class ContainerConfig
                 'password' => getenv('password'),
                 'collation' => getenv('collation'),
                 'prefix' => ''
-            );
+            ];
 
             $connFactory = new ConnectionFactory($container->getLaravelContainer());
             $conn = $connFactory->make($settings);

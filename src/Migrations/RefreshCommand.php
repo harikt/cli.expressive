@@ -128,7 +128,8 @@ class RefreshCommand extends Command
     {
         $args['command'] = $command;
         return $this->getApplication()->find($command)->run(
-            new ArrayInput($arguments), $output
+            new ArrayInput($arguments),
+            $output
         );
     }
 }

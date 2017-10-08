@@ -2,9 +2,9 @@
 
 namespace Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\Mixed\Cms;
 
+use Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\Mixed\Cms\Modules\TestEntityModule;
 use Dms\Core\Package\Definition\PackageDefinition;
 use Dms\Core\Package\Package;
-use Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\Mixed\Cms\Modules\TestEntityModule;
 
 /**
  * The Mixed package.
