@@ -2,7 +2,6 @@
 
 namespace Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ValueObjectCollection\Domain;
 
-use Dms\Common\Structure\Geo\Country;
 use Dms\Common\Structure\Geo\LatLng;
 use Dms\Common\Structure\Geo\StreetAddress;
 use Dms\Common\Structure\Geo\StreetAddressWithLatLng;

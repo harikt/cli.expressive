@@ -2,9 +2,9 @@
 
 namespace Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\Enum\Persistence\Infrastructure;
 
+use Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\Enum\Domain\TestValueObjectWithEnum;
 use Dms\Core\Persistence\Db\Mapping\Definition\MapperDefinition;
 use Dms\Core\Persistence\Db\Mapping\IndependentValueObjectMapper;
-use Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\Enum\Domain\TestValueObjectWithEnum;
 
 /**
  * The Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\Enum\Domain\TestValueObjectWithEnum value object mapper.

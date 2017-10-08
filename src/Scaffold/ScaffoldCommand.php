@@ -2,7 +2,6 @@
 
 namespace Dms\Cli\Expressive\Scaffold;
 
-use Dms\Core\Exception\InvalidArgumentException;
 use Dms\Cli\Expressive\Scaffold\CodeGeneration\ColourPropertyCodeGenerator;
 use Dms\Cli\Expressive\Scaffold\CodeGeneration\Convention\DefaultCodeConvention;
 use Dms\Cli\Expressive\Scaffold\CodeGeneration\CountryPropertyCodeGenerator;
@@ -24,8 +23,9 @@ use Dms\Cli\Expressive\Scaffold\CodeGeneration\WebPropertyCodeGenerator;
 use Dms\Cli\Expressive\Scaffold\Domain\DomainObjectStructure;
 use Dms\Cli\Expressive\Scaffold\Domain\DomainStructure;
 use Dms\Cli\Expressive\Scaffold\Domain\DomainStructureLoader;
-use Symfony\Component\Console\Command\Command;
+use Dms\Core\Exception\InvalidArgumentException;
 use Illuminate\Filesystem\Filesystem;
+use Symfony\Component\Console\Command\Command;
 
 /**
  * The dms:scaffold command base class

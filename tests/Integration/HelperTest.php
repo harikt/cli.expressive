@@ -2,9 +2,9 @@
 
 namespace Dms\Cli\Expressive\Tests\Integration;
 
+use Dms\Cli\Expressive\Tests\Integration\Fixtures\Demo\DemoFixture;
 use Dms\Common\Structure\FileSystem\File;
 use Dms\Core\Exception\InvalidArgumentException;
-use Dms\Cli\Expressive\Tests\Integration\Fixtures\Demo\DemoFixture;
 
 /**
  * @author Elliot Levin <elliotlevin@hotmail.com>

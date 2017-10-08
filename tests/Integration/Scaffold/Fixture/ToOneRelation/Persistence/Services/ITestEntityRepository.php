@@ -2,10 +2,10 @@
 
 namespace Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ToOneRelation\Persistence\Services;
 
+use Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ToOneRelation\Domain\TestEntity;
 use Dms\Core\Model\ICriteria;
 use Dms\Core\Model\ISpecification;
 use Dms\Core\Persistence\IRepository;
-use Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ToOneRelation\Domain\TestEntity;
 
 /**
  * The repository for the Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ToOneRelation\Domain\TestEntity entity.

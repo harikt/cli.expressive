@@ -2,15 +2,15 @@
 
 namespace Dms\Cli\Expressive\Scaffold;
 
+use Dms\Cli\Expressive\Scaffold\CodeGeneration\PhpCodeBuilderContext;
+use Dms\Cli\Expressive\Scaffold\Domain\DomainObjectStructure;
 use Dms\Common\Structure\FileSystem\PathHelper;
 use Dms\Core\Exception\InvalidOperationException;
 use Dms\Core\Model\Object\Entity;
 use Dms\Core\Model\Type\Builder\Type;
-use Dms\Cli\Expressive\Scaffold\CodeGeneration\PhpCodeBuilderContext;
-use Dms\Cli\Expressive\Scaffold\Domain\DomainObjectStructure;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**

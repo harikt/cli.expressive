@@ -2,9 +2,9 @@
 
 namespace Dms\Cli\Expressive\Scaffold;
 
-use Dms\Core\Exception\InvalidArgumentException;
 use Dms\Cli\Expressive\Scaffold\Domain\DomainObjectStructure;
 use Dms\Cli\Expressive\Scaffold\Domain\DomainStructure;
+use Dms\Core\Exception\InvalidArgumentException;
 
 /**
  * @author Elliot Levin <elliotlevin@hotmail.com>

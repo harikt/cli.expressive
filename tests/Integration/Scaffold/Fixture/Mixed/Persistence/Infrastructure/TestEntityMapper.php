@@ -2,9 +2,9 @@
 
 namespace Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\Mixed\Persistence\Infrastructure;
 
+use Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\Mixed\Domain\TestEntity;
 use Dms\Core\Persistence\Db\Mapping\Definition\MapperDefinition;
 use Dms\Core\Persistence\Db\Mapping\EntityMapper;
-use Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\Mixed\Domain\TestEntity;
 
 /**
  * The Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\Mixed\Domain\TestEntity entity mapper.

@@ -2,12 +2,12 @@
 
 namespace Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ValueObjectCollection\Persistence\Infrastructure;
 
-use Dms\Core\Persistence\Db\Mapping\Definition\MapperDefinition;
-use Dms\Core\Persistence\Db\Mapping\IndependentValueObjectMapper;
 use Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ValueObjectCollection\Domain\TestGeoValueObject;
 use Dms\Common\Structure\Geo\Persistence\LatLngMapper;
 use Dms\Common\Structure\Geo\Persistence\StreetAddressMapper;
 use Dms\Common\Structure\Geo\Persistence\StreetAddressWithLatLngMapper;
+use Dms\Core\Persistence\Db\Mapping\Definition\MapperDefinition;
+use Dms\Core\Persistence\Db\Mapping\IndependentValueObjectMapper;
 
 /**
  * The Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ValueObjectCollection\Domain\TestGeoValueObject value object mapper.

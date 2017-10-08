@@ -2,7 +2,6 @@
 
 namespace Dms\Cli\Expressive\Migrations;
 
-use Dms\Core\Persistence\Db\Connection\IConnection;
 use Illuminate\Database\Migrations\Migrator;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\ArrayInput;
@@ -81,7 +80,8 @@ class MigrateCommand extends Command
             ];
 
             return $this->getApplication()->find($command)->run(
-                new ArrayInput($arguments), $output
+                new ArrayInput($arguments),
+                $output
             );
         }
     }
@@ -104,7 +104,8 @@ class MigrateCommand extends Command
             ];
 
             return $this->getApplication()->find($command)->run(
-                new ArrayInput($arguments), $output
+                new ArrayInput($arguments),
+                $output
             );
         }
     }

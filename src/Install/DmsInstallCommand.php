@@ -9,7 +9,6 @@ use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Composer;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\ArrayInput;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -169,7 +168,8 @@ class DmsInstallCommand extends Command
         ];
 
         $this->getApplication()->find($command)->run(
-            new ArrayInput($arguments), $output
+            new ArrayInput($arguments),
+            $output
         );
 
         $output->writeln('<info>Executed: php console dms:make:migration initial_db</info>');
@@ -177,14 +177,16 @@ class DmsInstallCommand extends Command
         $this->getApplication()->find('migrate')->run(
             new ArrayInput([
                 'command' => 'migrate',
-            ]), $output
+            ]),
+            $output
         );
         $output->writeln('<info>Executed: php console migrate</info>');
 
         $this->getApplication()->find('db:seed')->run(
             new ArrayInput([
                 'command' => 'db:seed',
-            ]), $output
+            ]),
+            $output
         );
         $output->writeln('<info>Executed: php console db:seed</info>');
     }

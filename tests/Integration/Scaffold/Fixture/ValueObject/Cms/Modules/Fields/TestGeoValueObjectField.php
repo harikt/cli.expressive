@@ -2,11 +2,11 @@
 
 namespace Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ValueObject\Cms\Modules\Fields;
 
-use Dms\Core\Common\Crud\Definition\Form\ValueObjectFieldDefinition;
-use Dms\Core\Common\Crud\Form\ValueObjectField;
 use Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ValueObject\Domain\TestGeoValueObject;
 use Dms\Common\Structure\Field;
 use Dms\Common\Structure\Geo\Country;
+use Dms\Core\Common\Crud\Definition\Form\ValueObjectFieldDefinition;
+use Dms\Core\Common\Crud\Form\ValueObjectField;
 
 /**
  * The Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ValueObject\Domain\TestGeoValueObject value object field.

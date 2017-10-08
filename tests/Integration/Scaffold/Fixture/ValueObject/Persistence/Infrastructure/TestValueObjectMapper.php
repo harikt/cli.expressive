@@ -2,9 +2,9 @@
 
 namespace Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ValueObject\Persistence\Infrastructure;
 
+use Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ValueObject\Domain\TestValueObject;
 use Dms\Core\Persistence\Db\Mapping\Definition\MapperDefinition;
 use Dms\Core\Persistence\Db\Mapping\IndependentValueObjectMapper;
-use Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ValueObject\Domain\TestValueObject;
 
 /**
  * The Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ValueObject\Domain\TestValueObject value object mapper.

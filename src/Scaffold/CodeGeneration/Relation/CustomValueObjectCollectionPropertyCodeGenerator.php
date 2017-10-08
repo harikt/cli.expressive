@@ -2,16 +2,16 @@
 
 namespace Dms\Cli\Expressive\Scaffold\CodeGeneration\Relation;
 
-use Dms\Core\Model\Object\FinalizedPropertyDefinition;
-use Dms\Core\Model\Object\ValueObject;
-use Dms\Core\Model\Type\CollectionType;
-use Dms\Core\Model\Type\ObjectType;
 use Dms\Cli\Expressive\Scaffold\CodeGeneration\PhpCodeBuilderContext;
 use Dms\Cli\Expressive\Scaffold\CodeGeneration\PropertyCodeGenerator;
 use Dms\Cli\Expressive\Scaffold\Domain\DomainObjectStructure;
 use Dms\Cli\Expressive\Scaffold\Domain\DomainStructure;
 use Dms\Cli\Expressive\Scaffold\ScaffoldCmsContext;
 use Dms\Cli\Expressive\Scaffold\ScaffoldPersistenceContext;
+use Dms\Core\Model\Object\FinalizedPropertyDefinition;
+use Dms\Core\Model\Object\ValueObject;
+use Dms\Core\Model\Type\CollectionType;
+use Dms\Core\Model\Type\ObjectType;
 
 /**
  * @author Elliot Levin <elliotlevin@hotmail.com>

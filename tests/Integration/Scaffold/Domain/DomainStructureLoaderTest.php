@@ -16,7 +16,6 @@ use Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ValueObject\Domain\Tes
 use Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ValueObject\Domain\TestGeoValueObject;
 use Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ValueObject\Domain\TestMoneyValueObject;
 use Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ValueObject\Domain\TestValueObject;
-use Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ValueObject\Domain\TestValueObjectWithEnum;
 use Dms\Cli\Expressive\Tests\Integration\Scaffold\Fixture\ValueObject\Domain\TestWebValueObject;
 
 /**
