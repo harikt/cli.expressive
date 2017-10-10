@@ -10,12 +10,31 @@ use Dms\Common\Structure\FileSystem\Image;
 use Dms\Common\Structure\FileSystem\Persistence\FileMapper;
 use Dms\Common\Structure\FileSystem\Persistence\ImageMapper;
 use Dms\Core\Model\Object\FinalizedPropertyDefinition;
+use Illuminate\Config\Repository;
 
 /**
  * @author Elliot Levin <elliotlevin@hotmail.com>
  */
 class FilePropertyCodeGenerator extends CommonValueObjectPropertyCodeGenerator
 {
+
+    /**
+     * @var Repository
+     */
+    protected $config;
+
+    /**
+     * FilePropertyCodeGenerator constructor.
+     *
+     * @param CodeConvention $codeConvention
+     * @param Repository $config
+     */
+    public function __construct(CodeConvention $codeConvention, Repository $config)
+    {
+        $this->config = $config;
+        parent::__construct($codeConvention);
+    }
+
     /**
      * @return string[]
      */
@@ -81,6 +100,6 @@ class FilePropertyCodeGenerator extends CommonValueObjectPropertyCodeGenerator
 
     protected function getStorageDirectoryCode(DomainObjectStructure $object) : string
     {
-        return 'public_path(\'app/' . snake_case($object->getReflection()->getShortName()) . '\')';
+        return $this->config->get('dms.public.path') . '/app/' . snake_case($object->getReflection()->getShortName());
     }
 }
