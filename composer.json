@@ -14,7 +14,7 @@
         }
     ],
     "require": {
-        "harikt/web.expressive": "dev-psr-15",
+        "harikt/web.expressive": "0.2.0",
         "illuminate/database": "^5.5",
         "marcj/topsort": "^1.0.0",
         "symfony/console": "^3.3"

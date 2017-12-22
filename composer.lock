@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "072feceb1b86f9e19fd0bfeef4cfc0f7",
+    "content-hash": "68c573aa38a691e4b113f10dce29e4f9",
     "packages": [
         {
             "name": "akrabat/rka-ip-address-middleware",
@@ -756,12 +756,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "9f843bca49a223195921e589173ebaad8980bf0f"
+                "reference": "5e9cdb40dc8828ca8dc28824779172a1eb014b8b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/9f843bca49a223195921e589173ebaad8980bf0f",
-                "reference": "9f843bca49a223195921e589173ebaad8980bf0f",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/5e9cdb40dc8828ca8dc28824779172a1eb014b8b",
+                "reference": "5e9cdb40dc8828ca8dc28824779172a1eb014b8b",
                 "shasum": ""
             },
             "require": {
@@ -824,7 +824,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2017-12-20T06:57:53+00:00"
+            "time": "2017-12-22T07:21:06+00:00"
         },
         {
             "name": "doctrine/inflector",
@@ -999,16 +999,16 @@
         },
         {
             "name": "harikt/blade-renderer",
-            "version": "dev-psr-15",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/harikt/blade-renderer.git",
-                "reference": "cd05bd54d849f919ada156cda321b105cf494498"
+                "reference": "0d3e26ae3c2798daddc8d5720b9f6619b63afcc0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harikt/blade-renderer/zipball/cd05bd54d849f919ada156cda321b105cf494498",
-                "reference": "cd05bd54d849f919ada156cda321b105cf494498",
+                "url": "https://api.github.com/repos/harikt/blade-renderer/zipball/0d3e26ae3c2798daddc8d5720b9f6619b63afcc0",
+                "reference": "0d3e26ae3c2798daddc8d5720b9f6619b63afcc0",
                 "shasum": ""
             },
             "require": {
@@ -1039,20 +1039,20 @@
             ],
             "description": "Laravel blade renderer for Zend expressive",
             "homepage": "https://github.com/harikt/blade-renderer",
-            "time": "2017-12-21T19:35:55+00:00"
+            "time": "2017-12-22T09:48:26+00:00"
         },
         {
             "name": "harikt/web.expressive",
-            "version": "dev-psr-15",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/harikt/web.expressive.git",
-                "reference": "a5945fa1e8788afd9606e6fa89619807d84b8c30"
+                "reference": "3507ab2636061ca764c6f1afeba622ecb7791d7f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harikt/web.expressive/zipball/a5945fa1e8788afd9606e6fa89619807d84b8c30",
-                "reference": "a5945fa1e8788afd9606e6fa89619807d84b8c30",
+                "url": "https://api.github.com/repos/harikt/web.expressive/zipball/3507ab2636061ca764c6f1afeba622ecb7791d7f",
+                "reference": "3507ab2636061ca764c6f1afeba622ecb7791d7f",
                 "shasum": ""
             },
             "require": {
@@ -1064,7 +1064,7 @@
                 "dms-org/common.structure": "^0.8",
                 "dms-org/core": "^0.8",
                 "dms-org/library.metadata": "^0.8.0",
-                "harikt/blade-renderer": "dev-psr-15",
+                "harikt/blade-renderer": "0.3.0",
                 "http-interop/http-server-middleware": "^1.0",
                 "illuminate/config": "^5.4",
                 "php": ">=7.0.0",
@@ -1099,7 +1099,7 @@
                 }
             ],
             "description": "The integration package with the zend expressive",
-            "time": "2017-12-22T06:59:24+00:00"
+            "time": "2017-12-22T10:00:27+00:00"
         },
         {
             "name": "http-interop/http-server-handler",
@@ -4451,9 +4451,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "harikt/web.expressive": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
