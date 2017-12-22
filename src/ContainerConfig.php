@@ -39,5 +39,7 @@ class ContainerConfig
 
             return $resolver;
         });
+
+        $container->alias(ConnectionResolverInterface::class, 'db');
     }
 }
