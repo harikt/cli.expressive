@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "68c573aa38a691e4b113f10dce29e4f9",
+    "content-hash": "c093eba2a5527dcad5a2362d7558ca49",
     "packages": [
         {
             "name": "akrabat/rka-ip-address-middleware",
@@ -1043,16 +1043,16 @@
         },
         {
             "name": "harikt/web.expressive",
-            "version": "0.2.0",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/harikt/web.expressive.git",
-                "reference": "3507ab2636061ca764c6f1afeba622ecb7791d7f"
+                "reference": "111f7f320660bf2f6b35694fff3167de859b204b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harikt/web.expressive/zipball/3507ab2636061ca764c6f1afeba622ecb7791d7f",
-                "reference": "3507ab2636061ca764c6f1afeba622ecb7791d7f",
+                "url": "https://api.github.com/repos/harikt/web.expressive/zipball/111f7f320660bf2f6b35694fff3167de859b204b",
+                "reference": "111f7f320660bf2f6b35694fff3167de859b204b",
                 "shasum": ""
             },
             "require": {
@@ -1099,7 +1099,7 @@
                 }
             ],
             "description": "The integration package with the zend expressive",
-            "time": "2017-12-22T10:00:27+00:00"
+            "time": "2017-12-22T10:50:13+00:00"
         },
         {
             "name": "http-interop/http-server-handler",
