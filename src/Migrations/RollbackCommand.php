@@ -2,6 +2,7 @@
 
 namespace Dms\Cli\Expressive\Migrations;
 
+use Illuminate\Config\Repository;
 use Illuminate\Database\Migrations\Migrator;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -17,17 +18,20 @@ class RollbackCommand extends Command
      */
     protected $migrator;
 
+    protected $config;
+
     /**
      * Create a new migration rollback command instance.
      *
      * @param  \Illuminate\Database\Migrations\Migrator  $migrator
      * @return void
      */
-    public function __construct(Migrator $migrator)
+    public function __construct(Migrator $migrator, Repository $config)
     {
         parent::__construct();
 
         $this->migrator = $migrator;
+        $this->config = $config;
     }
 
     protected function configure()
@@ -68,7 +72,7 @@ class RollbackCommand extends Command
 
     protected function getMigrationPaths()
     {
-        $path = config('dms.database.migrations.dir') ?? database_path('migrations/');
+        $path = $this->config->get('dms.database.migrations.dir', null) ?? database_path('migrations/');
 
         return [$path];
     }

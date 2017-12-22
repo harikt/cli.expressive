@@ -2,6 +2,7 @@
 
 namespace Dms\Cli\Expressive\Migrations;
 
+use Illuminate\Config\Repository;
 use Illuminate\Database\Migrations\Migrator;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\ArrayInput;
@@ -18,17 +19,20 @@ class MigrateCommand extends Command
      */
     protected $migrator;
 
+    protected $config;
+
     /**
      * Create a new migration command instance.
      *
      * @param  \Illuminate\Database\Migrations\Migrator  $migrator
      * @return void
      */
-    public function __construct(Migrator $migrator)
+    public function __construct(Migrator $migrator, Repository $config)
     {
         parent::__construct();
 
         $this->migrator = $migrator;
+        $this->config = $config;
     }
 
     protected function configure()
@@ -55,7 +59,7 @@ class MigrateCommand extends Command
         // Next, we will check to see if a path option has been defined. If it has
         // we will use the path relative to the root of this installation folder
         // so that migrations may be run for any path within the applications.
-        $path = config('dms.database.migrations.dir') ?? database_path('migrations/');
+        $path = $this->config->get('dms.database.migrations.dir', null) ?? database_path('migrations/');
         $this->migrator->run([$path], [
             'pretend' => $input->getOption('pretend'),
             'step' => $input->getOption('step'),
