@@ -15,6 +15,7 @@ use Doctrine\DBAL\Schema\SchemaDiff;
 use Doctrine\DBAL\Schema\Table;
 use Doctrine\DBAL\Schema\TableDiff;
 use Doctrine\DBAL\Types\Type;
+use Illuminate\Config\Repository;
 use Illuminate\Database\Migrations\MigrationCreator;
 use Illuminate\Filesystem\Filesystem;
 use MJS\TopSort\Implementations\StringSort;
@@ -51,6 +52,8 @@ class LaravelMigrationGenerator extends MigrationGenerator
      */
     private $identifierMap = [];
 
+    protected $config;
+
     /**
      * LaravelMigrationGenerator constructor.
      *
@@ -58,14 +61,15 @@ class LaravelMigrationGenerator extends MigrationGenerator
      * @param Filesystem       $files
      * @param string|null      $path
      */
-    public function __construct(MigrationCreator $laravelMigrationCreator, Filesystem $files, string $path = null)
+    public function __construct(MigrationCreator $laravelMigrationCreator, Filesystem $files, Repository $config, string $path = null)
     {
         parent::__construct();
 
         $this->laravelMigrationCreator = $laravelMigrationCreator;
         $this->files                   = $files;
-        $this->path                    = $path ?: config('dms.database.migrations.dir') ?? database_path('migrations/');
-        $this->tablesToIgnore          = config('dms.database.migrations.ignored-tables') ?? [];
+        $this->config                  = $config;
+        $this->path                    = $path ?: $this->config->get('dms.database.migrations.dir', null) ?? database_path('migrations/');
+        $this->tablesToIgnore          = $this->config->get('dms.database.migrations.ignored-tables') ?? [];
     }
 
     /**

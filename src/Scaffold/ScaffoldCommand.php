@@ -24,6 +24,7 @@ use Dms\Cli\Expressive\Scaffold\Domain\DomainObjectStructure;
 use Dms\Cli\Expressive\Scaffold\Domain\DomainStructure;
 use Dms\Cli\Expressive\Scaffold\Domain\DomainStructureLoader;
 use Dms\Core\Exception\InvalidArgumentException;
+use Illuminate\Config\Repository;
 use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Console\Command\Command;
 
@@ -55,16 +56,22 @@ abstract class ScaffoldCommand extends Command
     protected $propertyCodeGenerators;
 
     /**
+     * @var Repository
+     */
+    protected $config;
+
+    /**
      * ScaffoldCommand constructor.
      *
      * @param Filesystem                 $filesystem
      * @param DomainStructureLoader      $domainStructureLoader
      * @param NamespaceDirectoryResolver $namespaceResolver
      */
-    public function __construct(Filesystem $filesystem, DomainStructureLoader $domainStructureLoader, NamespaceDirectoryResolver $namespaceResolver)
+    public function __construct(Filesystem $filesystem, DomainStructureLoader $domainStructureLoader, NamespaceDirectoryResolver $namespaceResolver, Repository $config)
     {
         parent::__construct();
 
+        $this->config                = $config;
         $this->filesystem            = $filesystem;
         $this->domainStructureLoader = $domainStructureLoader;
         $this->namespaceResolver     = $namespaceResolver;
@@ -73,7 +80,7 @@ abstract class ScaffoldCommand extends Command
         $this->propertyCodeGenerators = [
             new ScalarPropertyCodeGenerator($convention),
             new DateAndTimePropertyCodeGenerator($convention),
-            new FilePropertyCodeGenerator($convention),
+            new FilePropertyCodeGenerator($convention, $config),
             new ColourPropertyCodeGenerator($convention),
             new GeoPropertyCodeGenerator($convention),
             new CountryPropertyCodeGenerator($convention),
