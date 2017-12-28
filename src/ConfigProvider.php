@@ -24,6 +24,7 @@ class ConfigProvider
             'templates'    => $this->getTemplates(),
             'console' => [
                 'commands' => [
+                    File\ClearTempFilesCommand::class,
                     Install\DmsInstallCommand::class,
                     Migrations\AutoGenerateMigrationCommand::class,
                     Migrations\MigrateCommand::class,
