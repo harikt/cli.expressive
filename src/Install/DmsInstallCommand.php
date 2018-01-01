@@ -5,6 +5,7 @@ namespace Dms\Cli\Expressive\Install;
 use Dms\Core\Exception\InvalidOperationException;
 use Dms\Core\ICms;
 use Dms\Core\Persistence\Db\Mapping\IOrm;
+use Dms\Core\Persistence\Db\Connection\IConnection;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Composer;
 use Symfony\Component\Console\Command\Command;
@@ -28,17 +29,27 @@ class DmsInstallCommand extends Command
 
     protected $filesystem;
 
+    protected $connection;
+
+    protected $container;
+
     /**
      * DmsInstallCommand constructor.
      *
      * @param Composer $composer
      */
-    public function __construct(Composer $composer, Filesystem $filesystem)
-    {
+    public function __construct(
+        Composer $composer, 
+        Filesystem $filesystem, 
+        IConnection $connection,
+        LaravelIocContainer $container
+    ) {
         parent::__construct();
 
         $this->composer = $composer;
         $this->filesystem = $filesystem;
+        $this->connection = $connection;
+        $this->container = $container;
     }
 
     protected function configure()
@@ -92,70 +103,71 @@ class DmsInstallCommand extends Command
 
     protected function ensureMySqlInnoDbLargePrefixIsEnabled($output) : bool
     {
-        if (env('DB_CONNECTION') !== 'mysql') {
+        if (env('driver') !== 'mysql') {
             return true;
         }
 
-        $hasLargePrefixEnabled = \DB::select('SELECT @@innodb_large_prefix AS flag')[0]->flag;
+        // $hasLargePrefixEnabled = \DB::select('SELECT @@innodb_large_prefix AS flag')[0]->flag;
 
-        if (!$hasLargePrefixEnabled) {
-            $output->writeln('<warn>Please enable innodb_large_prefix. See here https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_large_prefix</warn>');
-            return false;
-        }
+        // if (!$hasLargePrefixEnabled) {
+        //     $output->writeln('<warn>Please enable innodb_large_prefix. See here https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_large_prefix</warn>');
+        //     return false;
+        // }
 
         return true;
     }
 
     protected function cleanDefaultModelsAndEntities($output)
     {
-        $this->filesystem->delete(app_path('User.php'));
-        $output->writlen('<info>Deleted: ' . app_path('User.php') . '</info>');
-        $this->filesystem->cleanDirectory(database_path('migrations/'));
-        $output->writeln('<info>Deleted: ' . database_path('migrations/') . '*</info>');
+        // $this->filesystem->delete($this->appPath('User.php'));
+        // $output->writlen('<info>Deleted: ' . $this->appPath('User.php') . '</info>');
+        // $this->filesystem->cleanDirectory($this->projectRoot('database/migrations/'));
+        // $output->writeln('<info>Deleted: ' . $this->projectRoot('database/migrations/') . '*</info>');
     }
 
     protected function disableMySqlStrictMode($output)
     {
-        $this->filesystem->put(config_path('database.php'), preg_replace('/([\'"]strict[\'"]\s*=>\s*)true/', '$1false', file_get_contents(config_path('database.php'))));
-        app('config')->set('database.mysql.strict', false);
-        $output->writeln('<info>Disabled MySQL strict mode</info>');
+        // $this->filesystem->put(config_path('database.php'), preg_replace('/([\'"]strict[\'"]\s*=>\s*)true/', '$1false', file_get_contents(config_path('database.php'))));
+        // app('config')->set('database.mysql.strict', false);
+        // $output->writeln('<info>Disabled MySQL strict mode</info>');
     }
 
     protected function scaffoldAppCms($output)
     {
-        $this->filesystem->copy(__DIR__ . '/Stubs/AppCms.php.stub', app_path('AppCms.php'));
-        require_once app_path('AppCms.php');
-        app()->singleton(ICms::class, \App\AppCms::class);
-        $output->writeln('<info>Created: ' . app_path('AppCms.php') . '</info>');
+        $this->filesystem->copy(__DIR__ . '/Stubs/AppCms.php.stub', $this->appPath('AppCms.php'));
+        require_once $this->appPath('AppCms.php');
+        // app()->singleton(ICms::class, \App\AppCms::class);
+        $output->writeln('<info>Created: ' . $this->appPath('AppCms.php') . '</info>');
     }
 
     protected function scaffoldAppOrm($output)
     {
-        $this->filesystem->copy(__DIR__ . '/Stubs/AppOrm.php.stub', app_path('AppOrm.php'));
-        require_once app_path('AppOrm.php');
-        app()->singleton(IOrm::class, \App\AppOrm::class);
-        $output->writeln('<info>Created: ' . app_path('AppOrm.php') . '</info>');
+        $this->filesystem->copy(__DIR__ . '/Stubs/AppOrm.php.stub', $this->appPath('AppOrm.php'));
+        require_once $this->appPath('AppOrm.php');
+        // app()->singleton(IOrm::class, \App\AppOrm::class);
+        $output->writeln('<info>Created: ' . $this->appPath('AppOrm.php') . '</info>');
     }
 
     protected function scaffoldDatabaseSeeders($output)
     {
-        $this->filesystem->copy(__DIR__ . '/Stubs/DmsAdminSeeder.php.stub', database_path('seeds/DmsAdminSeeder.php'));
-        require_once database_path('seeds/DmsAdminSeeder.php');
-        $output->writeln('<info>Created: ' . database_path('seeds/DmsAdminSeeder.php') . '</info>');
-        $this->filesystem->copy(__DIR__ . '/Stubs/DatabaseSeeder.php.stub', database_path('seeds/DatabaseSeeder.php'));
-        require_once database_path('seeds/DatabaseSeeder.php');
-        $output->writeln('<info>Updated: ' . database_path('seeds/DatabaseSeeder.php') . '</info>');
+        $this->filesystem->copy(__DIR__ . '/Stubs/DmsAdminSeeder.php.stub', $this->projectRoot('database/seeds/DmsAdminSeeder.php'));
+        require_once $this->projectRoot('database/seeds/DmsAdminSeeder.php');
+        $output->writeln('<info>Created: ' . $this->projectRoot('database/seeds/DmsAdminSeeder.php') . '</info>');
+        $this->filesystem->copy(__DIR__ . '/Stubs/DatabaseSeeder.php.stub', $this->projectRoot('database/seeds/DatabaseSeeder.php'));
+        require_once $this->projectRoot('database/seeds/DatabaseSeeder.php');
+        $output->writeln('<info>Updated: ' . $this->projectRoot('database/seeds/DatabaseSeeder.php') . '</info>');
     }
 
     protected function scaffoldAppServiceProvider($output)
     {
-        $this->filesystem->copy(__DIR__ . '/Stubs/AppServiceProvider.php.stub', app_path('Providers/AppServiceProvider.php'));
-        $output->writeln('<info>Updated: ' . app_path('Providers/AppServiceProvider.php') . '</info>');
+        // $this->filesystem->copy(__DIR__ . '/Stubs/AppServiceProvider.php.stub', $this->appPath('Providers/AppServiceProvider.php'));
+        // $output->writeln('<info>Updated: ' . $this->appPath('Providers/AppServiceProvider.php') . '</info>');
     }
 
     protected function publishAssets()
     {
-        app('laravel.config')->set(['dms' => require __DIR__ . '/../../config/dms.php']);
+        // app('laravel.config')->set(['dms' => require __DIR__ . '/../../config/dms.php']);
+        cp($this->projectRoot('vendor/harikt/web.expressive/config/dms.php'), $this->projectRoot('config/autoload/dms.global.php'));
     }
 
     protected function setUpInitialDatabase($output)
@@ -182,19 +194,19 @@ class DmsInstallCommand extends Command
         );
         $output->writeln('<info>Executed: php console migrate</info>');
 
-        $this->getApplication()->find('db:seed')->run(
-            new ArrayInput([
-                'command' => 'db:seed',
-            ]),
-            $output
-        );
-        $output->writeln('<info>Executed: php console db:seed</info>');
+        // $this->getApplication()->find('db:seed')->run(
+        //     new ArrayInput([
+        //         'command' => 'db:seed',
+        //     ]),
+        //     $output
+        // );
+        // $output->writeln('<info>Executed: php console db:seed</info>');
     }
 
     protected function addPathsToGitIgnore($output)
     {
         file_put_contents(
-            app_path('../.gitignore'),
+            $this->appPath('../../../.gitignore'),
             '/storage/dms/' . PHP_EOL
             . '/public/files/' . PHP_EOL,
             FILE_APPEND
@@ -214,9 +226,21 @@ class DmsInstallCommand extends Command
 
     protected function createDefaultDirectories()
     {
-        @mkdir(app_path('Domain/Entities'));
+        @mkdir($this->appPath('Domain/Entities'));
         $output->writeln('<info>Created the app/Domain/Entities directory</info>');
-        @mkdir(app_path('Domain/Services'));
+        @mkdir($this->appPath('Domain/Services'));
         $output->writeln('<info>Created the app/Domain/Services directory</info>');
+    }
+
+    protected function appPath($path = null)
+    {
+        // vendor/harikt/cli.expressive/src/Install
+        return dirname(dirname(dirname(dirname(dirname(__DIR__))))) . '/src/App/src/' . $path;
+    }
+
+    protected function projectRoot($path = null)
+    {
+        // vendor/harikt/cli.expressive/src/Install
+        return dirname(dirname(dirname(dirname(dirname(__DIR__))))) . '/' . $path;
     }
 }
