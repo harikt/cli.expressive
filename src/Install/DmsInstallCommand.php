@@ -6,6 +6,7 @@ use Dms\Core\Exception\InvalidOperationException;
 use Dms\Core\ICms;
 use Dms\Core\Persistence\Db\Mapping\IOrm;
 use Dms\Core\Persistence\Db\Connection\IConnection;
+use Dms\Core\Ioc\IIocContainer;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Composer;
 use Symfony\Component\Console\Command\Command;
@@ -39,10 +40,10 @@ class DmsInstallCommand extends Command
      * @param Composer $composer
      */
     public function __construct(
-        Composer $composer, 
-        Filesystem $filesystem, 
+        Composer $composer,
+        Filesystem $filesystem,
         IConnection $connection,
-        LaravelIocContainer $container
+        IIocContainer $container
     ) {
         parent::__construct();
 
@@ -65,28 +66,23 @@ class DmsInstallCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $output->writeln("<info>Not completed!</info>");
-        return;
+        // if (!\DB::connection()->getDatabaseName()) {
+        //     throw InvalidOperationException::format('Cannot install: database is required, please verify config');
+        // }
 
-        if (!\DB::connection()->getDatabaseName()) {
-            throw InvalidOperationException::format('Cannot install: database is required, please verify config');
-        }
+        // $this->disableMySqlStrictMode($output);
 
-        $this->disableMySqlStrictMode($output);
-
-        if (!$this->ensureMySqlInnoDbLargePrefixIsEnabled($output)) {
-            return;
-        }
+        // if (!$this->ensureMySqlInnoDbLargePrefixIsEnabled($output)) {
+        //     return;
+        // }
 
         $this->cleanDefaultModelsAndEntities($output);
 
-        $this->scaffoldAppCms($output);
+        // $this->scaffoldAppCms($output);
 
-        $this->scaffoldAppOrm($output);
+        // $this->scaffoldAppOrm($output);
 
         $this->scaffoldDatabaseSeeders($output);
-
-        $this->scaffoldAppServiceProvider($output);
 
         $this->publishAssets();
 
@@ -117,14 +113,6 @@ class DmsInstallCommand extends Command
         return true;
     }
 
-    protected function cleanDefaultModelsAndEntities($output)
-    {
-        // $this->filesystem->delete($this->appPath('User.php'));
-        // $output->writlen('<info>Deleted: ' . $this->appPath('User.php') . '</info>');
-        // $this->filesystem->cleanDirectory($this->projectRoot('database/migrations/'));
-        // $output->writeln('<info>Deleted: ' . $this->projectRoot('database/migrations/') . '*</info>');
-    }
-
     protected function disableMySqlStrictMode($output)
     {
         // $this->filesystem->put(config_path('database.php'), preg_replace('/([\'"]strict[\'"]\s*=>\s*)true/', '$1false', file_get_contents(config_path('database.php'))));
@@ -132,11 +120,17 @@ class DmsInstallCommand extends Command
         // $output->writeln('<info>Disabled MySQL strict mode</info>');
     }
 
+    protected function cleanDefaultModelsAndEntities($output)
+    {
+        $this->filesystem->cleanDirectory($this->projectRoot('database/migrations'));
+        $output->writeln('<info>Deleted: ' . $this->projectRoot('database/migrations') . '*'. '</info>');
+    }
+
     protected function scaffoldAppCms($output)
     {
         $this->filesystem->copy(__DIR__ . '/Stubs/AppCms.php.stub', $this->appPath('AppCms.php'));
         require_once $this->appPath('AppCms.php');
-        // app()->singleton(ICms::class, \App\AppCms::class);
+        $this->container->bind(IIocContainer::SCOPE_SINGLETON, ICms::class, \App\AppCms::class);
         $output->writeln('<info>Created: ' . $this->appPath('AppCms.php') . '</info>');
     }
 
@@ -144,38 +138,43 @@ class DmsInstallCommand extends Command
     {
         $this->filesystem->copy(__DIR__ . '/Stubs/AppOrm.php.stub', $this->appPath('AppOrm.php'));
         require_once $this->appPath('AppOrm.php');
-        // app()->singleton(IOrm::class, \App\AppOrm::class);
+        $this->container->bind(IIocContainer::SCOPE_SINGLETON, IOrm::class, \App\AppOrm::class);
         $output->writeln('<info>Created: ' . $this->appPath('AppOrm.php') . '</info>');
     }
 
     protected function scaffoldDatabaseSeeders($output)
     {
-        $this->filesystem->copy(__DIR__ . '/Stubs/DmsAdminSeeder.php.stub', $this->projectRoot('database/seeds/DmsAdminSeeder.php'));
-        require_once $this->projectRoot('database/seeds/DmsAdminSeeder.php');
-        $output->writeln('<info>Created: ' . $this->projectRoot('database/seeds/DmsAdminSeeder.php') . '</info>');
-        $this->filesystem->copy(__DIR__ . '/Stubs/DatabaseSeeder.php.stub', $this->projectRoot('database/seeds/DatabaseSeeder.php'));
-        require_once $this->projectRoot('database/seeds/DatabaseSeeder.php');
-        $output->writeln('<info>Updated: ' . $this->projectRoot('database/seeds/DatabaseSeeder.php') . '</info>');
-    }
-
-    protected function scaffoldAppServiceProvider($output)
-    {
-        // $this->filesystem->copy(__DIR__ . '/Stubs/AppServiceProvider.php.stub', $this->appPath('Providers/AppServiceProvider.php'));
-        // $output->writeln('<info>Updated: ' . $this->appPath('Providers/AppServiceProvider.php') . '</info>');
+        // $this->filesystem->copy(__DIR__ . '/Stubs/DmsAdminSeeder.php.stub', $this->projectRoot('database/seeds/DmsAdminSeeder.php'));
+        // require_once $this->projectRoot('database/seeds/DmsAdminSeeder.php');
+        // $output->writeln('<info>Created: ' . $this->projectRoot('database/seeds/DmsAdminSeeder.php') . '</info>');
+        // $this->filesystem->copy(__DIR__ . '/Stubs/DatabaseSeeder.php.stub', $this->projectRoot('database/seeds/DatabaseSeeder.php'));
+        // require_once $this->projectRoot('database/seeds/DatabaseSeeder.php');
+        // $output->writeln('<info>Updated: ' . $this->projectRoot('database/seeds/DatabaseSeeder.php') . '</info>');
     }
 
     protected function publishAssets()
     {
-        // app('laravel.config')->set(['dms' => require __DIR__ . '/../../config/dms.php']);
-        cp($this->projectRoot('vendor/harikt/web.expressive/config/dms.php'), $this->projectRoot('config/autoload/dms.global.php'));
+        copy($this->projectRoot('vendor/harikt/web.expressive/config/dms.php'), $this->projectRoot('config/autoload/dms.global.php'));
+        $this->filesystem->copyDirectory($this->projectRoot('vendor/harikt/web.expressive/dist'), $this->projectRoot('public/vendor/dms'));
     }
 
     protected function setUpInitialDatabase($output)
     {
+        $command = 'migrate:install';
+
+        $arguments = [];
+
+        $this->getApplication()->find($command)->run(
+            new ArrayInput($arguments),
+            $output
+        );
+
+        $output->writeln('<info>Executed: php console migrate:install</info>');
+
         $command = 'dms:make:migration';
 
         $arguments = [
-            '--name' => 'initial_db',
+            'name' => 'initial_db',
             'command' => $command,
         ];
 
@@ -224,11 +223,11 @@ class DmsInstallCommand extends Command
         // $output->writeln('<info>Added php console dms:update to post-update hook in composer.json</info>');
     }
 
-    protected function createDefaultDirectories()
+    protected function createDefaultDirectories($output)
     {
-        @mkdir($this->appPath('Domain/Entities'));
+        @mkdir($this->appPath('Domain/Entities'), 0755, true);
         $output->writeln('<info>Created the app/Domain/Entities directory</info>');
-        @mkdir($this->appPath('Domain/Services'));
+        @mkdir($this->appPath('Domain/Services'), 0755, true);
         $output->writeln('<info>Created the app/Domain/Services directory</info>');
     }
 

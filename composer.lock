@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6c46935a8d21fcfed8330573bd262e8d",
+    "content-hash": "de082b34c9a85079f7909b5ee432f305",
     "packages": [
         {
             "name": "akrabat/rka-ip-address-middleware",
@@ -53,52 +53,6 @@
                 "psr7"
             ],
             "time": "2016-11-13T12:23:41+00:00"
-        },
-        {
-            "name": "aura/intl",
-            "version": "3.x-dev",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/auraphp/Aura.Intl.git",
-                "reference": "7fce228980b19bf4dee2d7bbd6202a69b0dde926"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/auraphp/Aura.Intl/zipball/7fce228980b19bf4dee2d7bbd6202a69b0dde926",
-                "reference": "7fce228980b19bf4dee2d7bbd6202a69b0dde926",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.6|^7.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Aura\\Intl\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Aura.Intl Contributors",
-                    "homepage": "https://github.com/auraphp/Aura.Intl/contributors"
-                }
-            ],
-            "description": "The Aura Intl package provides internationalization tools, specifically message translation.",
-            "homepage": "https://github.com/auraphp/Aura.Intl",
-            "keywords": [
-                "g11n",
-                "globalization",
-                "i18n",
-                "internationalization",
-                "intl",
-                "l10n",
-                "localization"
-            ],
-            "time": "2017-01-20T05:00:11+00:00"
         },
         {
             "name": "aura/session",
@@ -1043,21 +997,20 @@
         },
         {
             "name": "harikt/web.expressive",
-            "version": "0.2.2",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/harikt/web.expressive.git",
-                "reference": "9628ecb629d66d74750d06338eb0a7e582a20abc"
+                "reference": "180e557701e1a9a2d17dd5899a6dbc87aac79c31"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harikt/web.expressive/zipball/9628ecb629d66d74750d06338eb0a7e582a20abc",
-                "reference": "9628ecb629d66d74750d06338eb0a7e582a20abc",
+                "url": "https://api.github.com/repos/harikt/web.expressive/zipball/180e557701e1a9a2d17dd5899a6dbc87aac79c31",
+                "reference": "180e557701e1a9a2d17dd5899a6dbc87aac79c31",
                 "shasum": ""
             },
             "require": {
                 "akrabat/rka-ip-address-middleware": "^0.5.0",
-                "aura/intl": "^3.0",
                 "aura/session": "^2.1",
                 "beheh/flaps": "^0.2.0",
                 "cache/cache": "^0.1.0",
@@ -1068,6 +1021,8 @@
                 "http-interop/http-server-middleware": "^1.0",
                 "illuminate/config": "^5.4",
                 "php": ">=7.0.0",
+                "symfony/translation": "3.*",
+                "symfony/validator": "3.*",
                 "zendframework/zend-expressive": "^3.0.0-dev"
             },
             "require-dev": {
@@ -1099,7 +1054,7 @@
                 }
             ],
             "description": "The integration package with the zend expressive",
-            "time": "2017-12-24T15:06:17+00:00"
+            "time": "2017-12-30T17:47:32+00:00"
         },
         {
             "name": "http-interop/http-server-handler",
@@ -2527,6 +2482,90 @@
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
             "time": "2017-12-31T06:59:27+00:00"
+        },
+        {
+            "name": "symfony/validator",
+            "version": "3.4.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/validator.git",
+                "reference": "40a4f38e1f000087fdcd76db93b07af46b06d5da"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/validator/zipball/40a4f38e1f000087fdcd76db93b07af46b06d5da",
+                "reference": "40a4f38e1f000087fdcd76db93b07af46b06d5da",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9|>=7.0.8",
+                "symfony/polyfill-mbstring": "~1.0",
+                "symfony/translation": "~2.8|~3.0|~4.0"
+            },
+            "conflict": {
+                "phpunit/phpunit": "<4.8.35|<5.4.3,>=5.0",
+                "symfony/dependency-injection": "<3.3",
+                "symfony/http-kernel": "<3.3.5",
+                "symfony/yaml": "<3.4"
+            },
+            "require-dev": {
+                "doctrine/annotations": "~1.0",
+                "doctrine/cache": "~1.0",
+                "egulias/email-validator": "^1.2.8|~2.0",
+                "symfony/cache": "~3.1|~4.0",
+                "symfony/config": "~2.8|~3.0|~4.0",
+                "symfony/dependency-injection": "~3.3|~4.0",
+                "symfony/expression-language": "~2.8|~3.0|~4.0",
+                "symfony/http-foundation": "~2.8|~3.0|~4.0",
+                "symfony/http-kernel": "^3.3.5|~4.0",
+                "symfony/intl": "^2.8.18|^3.2.5|~4.0",
+                "symfony/property-access": "~2.8|~3.0|~4.0",
+                "symfony/var-dumper": "~3.3|~4.0",
+                "symfony/yaml": "~3.4|~4.0"
+            },
+            "suggest": {
+                "doctrine/annotations": "For using the annotation mapping. You will also need doctrine/cache.",
+                "doctrine/cache": "For using the default cached annotation reader and metadata cache.",
+                "egulias/email-validator": "Strict (RFC compliant) email validation",
+                "psr/cache-implementation": "For using the metadata cache.",
+                "symfony/config": "",
+                "symfony/expression-language": "For using the Expression validator",
+                "symfony/http-foundation": "",
+                "symfony/intl": "",
+                "symfony/property-access": "For accessing properties within comparison constraints",
+                "symfony/yaml": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Validator\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Validator Component",
+            "homepage": "https://symfony.com",
+            "time": "2017-12-31T06:07:31+00:00"
         },
         {
             "name": "timetoogo/pinq",
