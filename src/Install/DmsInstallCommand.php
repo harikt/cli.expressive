@@ -154,7 +154,11 @@ class DmsInstallCommand extends Command
 
     protected function publishAssets()
     {
+        // Make cache directory
+        mkdir($this->projectRoot("data/cache"), 0755, true);
+        // Copy dms configuration
         copy($this->projectRoot('vendor/harikt/web.expressive/config/dms.php'), $this->projectRoot('config/autoload/dms.global.php'));
+        // Move all dms assets to public folder
         $this->filesystem->copyDirectory($this->projectRoot('vendor/harikt/web.expressive/dist'), $this->projectRoot('public/vendor/dms'));
     }
 
