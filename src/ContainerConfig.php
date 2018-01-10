@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Schema;
 
 class ContainerConfig
 {
-    public function define(LaravelIocContainer $container)
+    public function define(IIocContainer $container)
     {
         $container->bindCallback(IIocContainer::SCOPE_SINGLETON, MigrationRepositoryInterface::class, function () use ($container) {
             return new DatabaseMigrationRepository($container->get(ConnectionResolverInterface::class), 'migrations');
