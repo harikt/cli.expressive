@@ -40,6 +40,6 @@ class ContainerConfig
             return $resolver;
         });
 
-        $container->alias(ConnectionResolverInterface::class, 'db');
+        // $container->alias(ConnectionResolverInterface::class, 'db');
     }
 }
