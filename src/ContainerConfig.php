@@ -3,7 +3,6 @@
 namespace Dms\Cli\Expressive;
 
 use Dms\Core\Ioc\IIocContainer;
-use Dms\Web\Expressive\Ioc\LaravelIocContainer;
 use Illuminate\Database\ConnectionResolver;
 use Illuminate\Database\ConnectionResolverInterface;
 use Illuminate\Database\Connectors\ConnectionFactory;
@@ -30,12 +29,12 @@ class ContainerConfig
                 'prefix' => ''
             ];
 
-            $connFactory = new ConnectionFactory($container->getLaravelContainer());
+            $connFactory = new ConnectionFactory($container->getIlluminateContainer());
             $conn = $connFactory->make($settings);
             $resolver = new ConnectionResolver();
             $resolver->addConnection('default', $conn);
             $resolver->setDefaultConnection('default');
-            Schema::setFacadeApplication($container->getLaravelContainer());
+            Schema::setFacadeApplication($container->getIlluminateContainer());
 
             return $resolver;
         });
