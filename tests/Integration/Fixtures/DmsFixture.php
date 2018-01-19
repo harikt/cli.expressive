@@ -80,8 +80,8 @@ abstract class DmsFixture
             file_put_contents($this->dbStubFile(), '');
 
             $migrationFile = $migrationGenerator->generateMigration(
-                $app->make(IConnection::class),
-                $app->make(IOrm::class),
+                $app->get(IConnection::class),
+                $app->get(IOrm::class),
                 basename(str_replace('\\', '-', get_class($this))) . '-' . str_random(5)
             );
 

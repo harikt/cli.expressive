@@ -25,7 +25,7 @@ abstract class ScaffoldTest extends CmsIntegrationTest
      */
     public function getConsole(): Kernel
     {
-        return $this->app->make(Kernel::class);
+        return $this->app->get(Kernel::class);
     }
 
     protected function assertDirectoriesEqual(string $expected, string $actual, bool $normalizeLineReturns = true)
